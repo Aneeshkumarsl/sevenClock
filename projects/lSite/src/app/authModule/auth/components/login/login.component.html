@@ -16,7 +16,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput placeholder="Password" [type]="show ? 'text' : 'password'" formControlName="password">
-            <img class="passIcon"  (click)='show = !show'  [src]="show ? '../assets/images/eye_open.png' : '../assets/images/eye.png'" />
+            <img class="passIcon"  (click)='show = !show'  [src]="show ? '../sevenClock/assets/images/eye_open.png' : '../assets/images/eye.png'" />
           <mat-error *ngIf="loginForm.get('password').getError('required')">Password is required</mat-error>
         </mat-form-field>
       </div>
