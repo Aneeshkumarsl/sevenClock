@@ -1,0 +1,130 @@
+<div class="grid-container">
+    <h1 class="mat-h1 d-flex align-items-center h1-font-weight"><mat-icon class="mr-2">library_add</mat-icon>New Bill</h1>
+
+   
+      <div class="container-fluid">
+  <div id="accordion" class="py-4">
+      <div class="card border-1">
+          <div class="card-header p-0 border-0" id="heading-240">
+          <button class="btn btn-link accordion-title border-0 collapse" data-toggle="collapse" data-target="#collapse-240" aria-expanded="true" aria-controls="#collapse-240">
+              <i class="fa fa-minus text-center d-flex align-items-center justify-content-center h-100"></i>
+              <span class="textDesign">Add Bill Details</span>
+            </button>
+        </div>
+        <div id="collapse-240" class="collapse show" aria-labelledby="heading-240" data-parent="#accordion">
+            <div class="card-body accordion-body">
+              <form [formGroup]="addItemsForm"  novalidate >
+              <div class="row">
+                <div class="col-12 col-md-4 col-xl-4 col-lg-4 col-sm-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Item</mat-label>
+                        <input matInput placeholder="Item" type="text" formControlName="item">
+                        <mat-error *ngIf="addItemsForm.controls['item'].hasError('required') && submitted">Item is required</mat-error>
+                      </mat-form-field>
+                </div>
+                <div class="col-12 col-md-4 col-xl-4 col-lg-4 col-sm-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Quantity</mat-label>
+                        <input matInput placeholder="Quantity" numberOnly type="text" formControlName="quantity">
+                        <mat-error *ngIf="addItemsForm.controls['quantity'].hasError('required') && submitted">Quantity is required</mat-error>
+                      </mat-form-field>
+                </div>
+                <div class="col-12 col-md-4 col-xl-4 col-lg-4 col-sm-12">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Rate</mat-label>
+                      <input matInput placeholder="Rate" numberOnly type="text" formControlName="rate">
+                      <mat-error *ngIf="addItemsForm.controls['rate'].hasError('required') && submitted">Rate is required</mat-error>
+                    </mat-form-field>
+              </div>
+            </div>
+          </form>
+            </div>            
+              <div class="button-div">
+                <button mat-raised-button class="button-class mr-2" (click)="goBack()"><mat-icon class="mat-icon-class">keyboard_backspace</mat-icon>Go Back</button>
+                <button mat-raised-button class="button-class" type="submit"  (click)="onaddItems(addItemsForm.value)" ><mat-icon class="mat-icon-class">add_circle_outline</mat-icon>Add</button>
+              </div>                      
+        </div>
+    </div>
+    </div> 
+</div>
+<div class="container-fluid">
+  <div id="accordion" class="py-4">
+      <div class="card border-1">
+          <div class="card-header p-0 border-0" id="heading-241">
+          <button class="btn btn-link accordion-title border-0 collapse" data-toggle="collapse" data-target="#collapse-241" aria-expanded="true" aria-controls="#collapse-241">
+              <i class="fa fa-minus text-center d-flex align-items-center justify-content-center h-100"></i>
+              <span class="textDesign"> Bill Details </span>
+            </button>
+        </div>
+        <div id="collapse-241" class="collapse show" aria-labelledby="heading-241" data-parent="#accordion">
+            <div class="card-body accordion-body">
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table">
+                  <tr class="new-table">
+                    <th class="text-center">
+                      <span>No</span>
+                    </th>
+                    <th  class="text-center">
+                      <span>Item</span>
+                    </th>
+                    <th  class="text-center">
+                      <span>Quantity</span>
+                    </th>
+                    <th  class="text-center">
+                      <span>Rate</span>
+                    </th>
+                    <th  class="text-center">
+                      <span>Amount</span>
+                    </th>
+                    <th  class="text-center">
+                      <span>Actions</span>
+                    </th>
+                  </tr>
+                  <tr class="tr-style" *ngFor="let items of tableItems; let i = index">
+                    <td  class="text-center">
+                      {{i+1}}
+                    </td>
+                    <td  class="text-center">
+                      {{items.item}}
+                    </td>
+                    <td  class="text-center">
+                      {{items.quantity}}
+                    </td>
+                    <td  class="text-center">
+                      {{items.rate}}
+                    </td>
+                    <td  class="text-center">
+                      {{items.amount}}
+                    </td>
+                    <td  class="text-center">
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-icon-button-class"><mat-icon class="vert-icon">more_vert</mat-icon></button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item class="vert_button" (click)="editItems(items)"><mat-icon class="mr-2">edit</mat-icon> Edit</button>
+                  <button mat-menu-item class="vert_button" (click)="deleteItems(items)"><mat-icon class="mr-2">delete</mat-icon> Delete</button>
+                </mat-menu>
+                    </td>
+                  </tr>
+                </table>
+                <div *ngIf="tableItems.length == 0" class="d-flex align-items-center justify-content-center">
+                  <span class="span-no-record">No Data Available</span>
+                </div>
+              </div>
+            </div> 
+            </div>
+            <div class="total_div">
+              <span  class="total-span">total = {{totalAmount}}</span>
+              <button mat-raised-button class="button-class" (click)="printSubmit()"><mat-icon class="mat-icon-class">check_circle_outline</mat-icon>Submit</button>
+            </div>
+        </div>
+    </div>
+    </div> 
+</div>
+
+
+<app-printbill *ngIf= "showHidePopup"
+(closePoup) = "closePoup($event)"
+>
+</app-printbill>
+
+

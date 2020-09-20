@@ -1,0 +1,50 @@
+<div class="login-container">
+  <mat-card *ngIf="registerForm">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit(registerForm.value)" novalidate >
+        <div class="cardDetails">
+        <mat-form-field appearance="outline" [ngClass]="{validationcolor:registerForm.controls.name.hasError('required') && submitted }">
+          <mat-label>Full Name</mat-label>
+          <input matInput placeholder="Full Name" titleCase formControlName="name" required appAutofocus>
+          <mat-error *ngIf="registerForm.controls['name'].hasError('required') && submitted">Full Name is required</mat-error>
+          <mat-error *ngIf="registerForm.controls['name'].hasError('minlength') && submitted">Full Name isn't long enough, minimum of 3 characters</mat-error>
+          <mat-error *ngIf="registerForm.controls['name'].hasError('pattern') && submitted">Name must be string</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" [ngClass]="{validationcolor:registerForm.controls.email.hasError('required') && submitted }">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" required appAutofocus>
+            <mat-error *ngIf="registerForm.controls['email'].hasError('required') && submitted">Email is required</mat-error>
+            <mat-error *ngIf="registerForm.controls['email'].hasError('invalidEmail') && submitted">Invalid email address</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" [ngClass]="{validationcolor:registerForm.controls.password.hasError('required') && submitted }">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password" type="password" minlength="5" required appAutofocus>
+            <mat-error *ngIf="registerForm.controls['password'].hasError('required') && submitted">Password is required</mat-error>
+            <mat-error *ngIf="registerForm.controls['password'].hasError('minlength') && submitted">Password isn't long enough, minimum of 5 characters</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" [ngClass]="{validationcolor:registerForm.controls.confirmPassword.hasError('required') && submitted }">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" required appAutofocus>
+            <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('required') && submitted">Confirm Password is required</mat-error>
+            <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('mismatchedPasswords') && submitted">Passwords do not match</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+            <mat-label>Mobile Number</mat-label>
+            <input matInput type="text" maxlength=10 number placeholder="Phone Number" formControlName="phoneNumber" appAutofocus>
+            <mat-error *ngIf="registerForm.controls['phoneNumber'].hasError('required') && submitted">Email is required</mat-error>
+        </mat-form-field>
+      </div>
+      <section class="form-actions">
+        <button style="float: right" *ngIf="!spinner" mat-fab color="primary" type="submit" class="mat-elevation-z6">
+            <mat-icon>person_add</mat-icon>
+        </button>
+        <mat-spinner  style="float: right" *ngIf="spinner" [color]="'primary'" [diameter]="'30'" [mode]="'indeterminate'" [value]="'20'">
+        </mat-spinner>
+      </section>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

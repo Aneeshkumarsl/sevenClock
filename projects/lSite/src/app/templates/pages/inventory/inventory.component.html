@@ -1,0 +1,54 @@
+<div class="grid-container">
+    <h1 class="mat-h1 d-flex align-items-center h1-font-weight"><mat-icon class="mr-2">store</mat-icon> Inventory</h1>
+
+  
+   <section class="section_class">
+    <button mat-raised-button class="button-class" (click)="addMoreClick()"><mat-icon class="mat-icon-class">add_circle_outline</mat-icon>Add More</button>
+   </section> 
+   
+    <div class="example-container mat-elevation-z8 box-shadow">
+    
+      <mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="id"> {{element.id}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <mat-header-cell  *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="Name"> {{element.name}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="rate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Rate </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="Rate">  {{element.rate}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="color">
+          <mat-header-cell  *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="Color"> {{element.color}}</mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="brand">
+          <mat-header-cell  *matHeaderCellDef mat-sort-header>Brand </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="Brand"> {{element.brand}}</mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="total">
+          <mat-header-cell  *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="Total"> {{element.total}}</mat-cell>
+        </ng-container> 
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    
+      <mat-paginator [pageSizeOptions]="[7, 14, 25,50,75, 100]"></mat-paginator>
+    </div>
+  
+  </div>
+  <app-inventory-popup *ngIf= "showHidePopup"
+  (closePoup) = "closePoup($event)"
+  >
+  </app-inventory-popup>

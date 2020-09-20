@@ -1,0 +1,122 @@
+<div class="grid-container">
+    <h1 class="mat-h1 d-flex align-items-center h1-font-weight"><mat-icon class="mr-2">receipt</mat-icon> Billings</h1>
+
+    <section class="section_class">
+        <button mat-raised-button class="button-class" (click)="newBillClick()"><mat-icon class="mat-icon-class">dns</mat-icon>Add Bill</button>
+       </section> 
+
+    <div class="row">
+        <div class="col">
+          <div class="table-responsive-lg">
+              <table class="table table-bordered" >
+            <thead>
+              <tr>
+                <th scope="col">Serial No</th>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Total Items</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-column="Serial No">#1234</td>
+                <td  data-column="Date">23/1/2020</td>
+                <td data-column="Amount">300</td>
+                <td data-column="Total Items">5</td>
+                <td data-column="Status">Delivered</td>
+                <td>
+                  <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-icon-button-class"><mat-icon class="vert-icon">more_vert</mat-icon></button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item class="vert_button" (click)="printSubmit()"><mat-icon class="mr-2">print</mat-icon> Print</button>
+                  </mat-menu>
+                </td>
+              </tr>
+              <tr>
+                <td data-column="Serial No">#124334</td>
+                <td  data-column="Date">23/2/2020</td>
+                <td data-column="Amount">9000</td>
+                <td data-column="Total Items">15</td>
+                <td data-column="Status">Delivered</td>
+                <td>
+                  <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-icon-button-class"><mat-icon class="vert-icon">more_vert</mat-icon></button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item class="vert_button"  (click)="printSubmit()" ><mat-icon class="mr-2">print</mat-icon> Print</button>
+                  </mat-menu>
+                </td>
+              </tr>         
+            </tbody>
+          </table>
+        </div>
+        </div>
+        </div>
+        <!-- <div class="row" style="margin-bottom: 100px;" *ngIf = 'tableOfItems?.length > 0'>
+          <div class="col-md-4 spanClass align-self-center">
+          <span> Showing 1 to {{valueNumber}} of {{totalCount}} entries</span>
+        </div>
+        <div class="col-md-8 divColClass">
+          <div>
+            <ul class="nav nav-pills align-items-center" *ngIf="searchPages && searchPages.length > 0">
+              <li
+              class="page-item first-item">
+                <a class="nav-link iconClass"  href="javascript:void(0)" (click)="searchPrevious()"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            </li>
+            <li  class="nav-item"  *ngIf="searchPageNumber > 2">
+              <a  class="nav-link" href="javascript:void(0)" (click)="setSearchPage(0)" >1</a>
+            </li>
+            <li  class="nav-item" class="disabled"  *ngIf="searchPageNumber > 1">
+              <a  class="nav-link dotClass" href="javascript:void(0)">....</a>
+            </li>
+              <li class="nav-item" *ngFor="let p of searchPages;let i = index" [ngStyle]="{'display': searchPageNumber > i+1 || i > searchPageNumber + 1 ? 'none' : '' }">
+                <a class="nav-link"  href="javascript:void(0)" (click)="setSearchPage(i)" 
+                [ngClass]="{active: i === searchPageNumber}"
+               >{{i+1}}</a>
+              </li>
+              <li  class="nav-item"  *ngIf="(searchPages && searchPages.length -1 !== searchPageNumber+2) && (searchPages && searchPages.length !== searchPageNumber+2) && (searchPages && searchPages.length-1 !== searchPageNumber)" >
+                <a  class="nav-link dotClass" href="javascript:void(0)">....</a>
+              </li>
+              <li  class="nav-item"  *ngIf="(searchPages && searchPages.length -2 !== searchPageNumber) && (searchPages && searchPages.length !== searchPageNumber+1)" >
+                <a  class="nav-link" href="javascript:void(0)" (click)="setSearchPage(searchPages.length-1)" >{{searchPages.length}}</a>
+              </li>
+              <li
+               class="page-item last-item">
+               <a class="nav-link iconClass"  href="javascript:void(0)" (click)="searchNext()"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+           </li>
+            </ul>
+            <ul class="nav nav-pills align-items-center" *ngIf = " pages && pages.length > 0 ">
+              <li
+              class="page-item first-item">
+                <a class="nav-link iconClass"  href="javascript:void(0)" (click)="previous()"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            </li>
+            <li  class="nav-item"  *ngIf="pageNumber > 2">
+              <a  class="nav-link" href="javascript:void(0)" (click)="setPage(0)" >1</a>
+            </li>
+            <li  class="nav-item" class="disabled"  *ngIf="pageNumber > 1">
+              <a  class="nav-link dotClass" href="javascript:void(0)">....</a>
+            </li>
+              <li *ngFor="let p of pages ;let i = index" [ngStyle]="{'display': pageNumber > i+1 || i > pageNumber + 1 ? 'none' : '' }"   
+                class="nav-item" >
+                <a class="nav-link"  href="javascript:void(0)" (click)="setPage(i)" 
+                [ngClass]="{active: i === pageNumber}"
+               >{{i+1}}</a>
+              </li>
+              <li  class="nav-item"  *ngIf="(pages && pages.length -1 !== pageNumber+2) && (pages && pages.length !== pageNumber+2) && (pages && pages.length-1 !== pageNumber)" >
+                <a  class="nav-link dotClass" href="javascript:void(0)">....</a>
+              </li>
+              <li  class="nav-item"  *ngIf="(pages && pages.length -2 !== pageNumber) && (pages && pages.length !== pageNumber+1)" >
+                <a  class="nav-link" href="javascript:void(0)" (click)="setPage(pages.length-1)" >{{pages.length}}</a>
+              </li>
+              <li
+               class="page-item last-item">
+               <a class="nav-link iconClass"  href="javascript:void(0)" (click)="next()"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+           </li>
+            </ul>
+          </div>
+        </div>
+        </div> -->
+</div>
+<app-printbill *ngIf= "showHidePopup"
+(closePoup) = "closePoup($event)"
+>
+</app-printbill>

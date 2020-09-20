@@ -1,0 +1,58 @@
+<div class="app-modal-backdrop show"></div>
+<div class="app-modal sow">
+    <div class="app-modal-dialog">
+
+        <div class="app-modal-content">
+            <div class="modal-header app-modal-header">
+                <h3 class="app-modal-title"> Add Inventery Details</h3>
+                <button class="app-modal-close close" (click)="cancelBtnClick()"><mat-icon class="mat-icon-class-close">close</mat-icon></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="InventoryForm"  novalidate >       
+    <div class="row">
+        <div class="col-12 col-md-6 col-xl-6 col-lg-6 col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>ID</mat-label>
+                <input matInput placeholder="ID" formControlName="id" appAutofocus>
+              </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6 col-lg-6 col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" formControlName="name" appAutofocus>
+              </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6 col-lg-6 col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Rate</mat-label>
+                <input matInput placeholder="Rate" type="text" formControlName="rate">
+              </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6 col-lg-6 col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Color</mat-label>
+                <input matInput placeholder="Color" type="text" formControlName="color">
+              </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6 col-lg-6 col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Brand</mat-label>
+                <input matInput placeholder="Brand" type="text" formControlName="brand">
+              </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6 col-lg-6 col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder="Total" type="text" formControlName="total">
+              </mat-form-field>
+        </div>
+    </div>
+</form>
+            </div>
+            <div class="modal-footer app-modal-footer text-right">
+                <button mat-raised-button class="button-class">Save</button>
+            </div>
+        </div>
+    </div>
+
+</div>

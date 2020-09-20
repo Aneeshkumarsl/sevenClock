@@ -1,0 +1,96 @@
+ 
+  .badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: 12px;
+    line-height: 9px;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    background-color: #ff0000;
+    border: 4px solid #ff0000;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pulsate::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    right: 0;
+    bottom: 0;
+    -webkit-animation: pulse 1s ease infinite;
+    animation: pulse 1s ease infinite;
+    border-radius: 50%;
+    border: 2px solid #fb3d30;
+    width: 23px;
+    height: 23px;
+  }
+
+  @media (max-width:415px) {
+    .none-class {
+    display: none;
+    }
+  }
+  img {
+    border-radius: 21%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background: #fff;
+    margin-top: -5px;
+    margin-left: -7px;
+  }
+
+  mat-card-title {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+.sidenav {
+  margin-top: 70px !important;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+
+  height: 70px !important;
+
+  @media (max-width: 599px){
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+
+  height: 70px !important;
+}
+  }
+}
+
+.font-class {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
+
+.spanfont-weight {
+ font-weight: 800;
+}
+
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,9 @@
+<div>
+    <img mat-button [matMenuTriggerFor]="menu" src="../../../../assets/user.png"
+             alt="user" />
+             <!-- <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>account_box</mat-icon></button> -->
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><mat-icon class="mr-2">account_box</mat-icon> Profile</button>
+      <button mat-menu-item (click)="logout()"><mat-icon class="mr-2">exit_to_app</mat-icon> Log Out</button>
+    </mat-menu>
+  </div> 

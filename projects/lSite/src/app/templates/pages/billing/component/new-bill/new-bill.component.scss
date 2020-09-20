@@ -1,0 +1,128 @@
+.grid-container {
+    margin: 20px;
+  }
+
+  [data-toggle="collapse"] i:before {  
+    content: "✚";
+    font-style: normal !important;
+}
+  
+[data-toggle="collapse"].collapsed i:before {
+    content: "-";
+    font-style: normal !important;
+    font-size: 38px;
+    margin-top: -4px;
+}
+
+.total-span {
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #989494;
+}
+
+.button-div {
+  padding-bottom: 20px;
+  justify-content: flex-end;
+  display: flex;
+  padding-right: 20px;
+}
+.total_div {
+  @extend .button-div;
+  padding-left: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+mat-form-field {
+  width: 100% !important;
+}
+
+.table {
+  border-collapse: separate !important;
+  border-spacing: 0 6px;
+  margin-bottom: 0 !important;
+}
+
+
+th,td {
+
+  border: 0 !important;
+  font-size: 12px;
+  font-weight: 500;
+  vertical-align: middle !important;
+}
+
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+tr {
+  text-transform: capitalize
+}
+
+
+.vert_button {
+  display: flex !important;
+  align-items: center !important;
+
+}
+
+.h2-style {
+  color: #989494;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.span-no-record {
+  font-size: 20px;
+  color: #989494;
+}
+
+// @media 
+// only screen and (max-width: 760px),
+// (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+// 	table { 
+// 	  	width: 100%; 
+// 	}
+
+// 	table, thead, tbody, th, td, tr { 
+// 		display: block; 
+// 	}
+	
+// 	thead tr { 
+// 		position: absolute;
+// 		top: -9999px;
+// 		left: -9999px;
+// 	}
+	
+// 	tr {border-bottom: 1px solid #ccc; }
+	
+// 	td { 
+// 		border: none;
+// 		border-bottom: 1px solid #eee; 
+// 		position: relative;
+//     padding-left: 50%; 
+//     display: flex;
+//     justify-content: flex-end;
+//     color: #636567;;
+//     font-size: 15px;
+//     padding: 17px !important;
+//     vertical-align: middle !important;
+//     font-weight: 900;
+// 	}
+
+// 	td:before { 
+// 		position: absolute;
+// 		left: 15px;
+// 		padding-right: 10px; 
+// 		white-space: nowrap;
+// 		content: attr(data-column);
+// 		color: #000;
+//     font-weight: bold;
+//         text-transform: capitalize !important;
+//     font-size: 16px !important;
+//     font-weight: 500 !important;
+//   }
+
+// }

@@ -1,0 +1,60 @@
+<mat-toolbar id="mainToolbar" color="primary">   
+    <button mat-icon-button  (click)="onToolbarMenuToggle()"  id="toolbarMenu"><mat-icon>subject</mat-icon></button>
+    <img src="../../../../assets/images/7Logo.png" class="mr-3" style="width: 50px;background: transparent !important;height: auto !important;"/>
+  <span class="spanfont-weight"><span class="none-class"> 7'O Clock</span> Exports </span>
+  <span class="toolbar-spacer"></span>
+  <button mat-icon-button style="right: 20px;" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+    <mat-icon class="icon">notifications</mat-icon>
+    <span class="badge pulsate" *ngIf="badgeCount > 0">{{badgeCount}}</span>
+  </button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item>www</button>
+    <button mat-menu-item>weef</button>
+  </mat-menu>
+  <app-profile></app-profile>
+</mat-toolbar>
+
+<mat-sidenav-container
+  id="sidenavContainer"
+  class="sidenav"
+ fullscreen>
+  <mat-sidenav
+    mode="side"
+    #sidenav 
+    id="sidenav"
+    [class.menu-open]="isMenuOpen"
+    [class.menu-close]="!isMenuOpen"
+    opened>
+    
+    <mat-list id="menus">
+      <mat-card class="matCardColor">
+        <mat-card-header>
+          <div 
+            mat-card-avatar 
+            class="avatar">
+            <img mat-button  src="../../../../assets/user.jpeg"
+             alt="user" />
+          </div>
+
+          <mat-card-title>Aneesh Kumar</mat-card-title>
+          <mat-card-subtitle>i2Tym</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+          <mat-list-item *ngFor='let sideBar of sideBars' class="menu-item" [routerLink]='sideBar.router'>
+            <mat-icon matListIcon class="iconShake">{{sideBar.icon}}</mat-icon>
+            <a matLine class="font-class">{{sideBar.name}}</a>
+          </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content
+  [ngStyle]="{ 'margin-left.px': contentMargin}"
+  class="d-flex flex-column"
+  >
+  <div class="flex-grow-1">
+  <router-outlet></router-outlet>
+  <app-options></app-options>
+</div>
+  <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

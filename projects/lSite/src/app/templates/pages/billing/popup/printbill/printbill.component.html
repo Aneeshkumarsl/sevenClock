@@ -1,0 +1,68 @@
+<div class="app-modal-backdrop show"></div>
+<div class="app-modal sow">
+    <div class="app-modal-dialog">
+
+        <div class="app-modal-content">
+            <div class="modal-header app-modal-header">
+                <h3 class="app-modal-title"> Add Inventery Details</h3>
+                <button class="app-modal-close close" (click)="cancelBtnClick()"><mat-icon class="mat-icon-class-close">close</mat-icon></button>
+            </div>
+            <div class="modal-body">      
+                <div class="invoice-card">
+                    <div class="invoice-title">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="../../../../../../assets/images/7Logo.png" class="mr-3 img-width"/>
+                            <h2 class="mb-0">7'o Clock Exports</h2>
+                        </div>
+                      <div id="main-title">
+                        <h4 class="invoice-h4">INVOICE</h4>
+                        <span>12121</span>
+                      </div>                    
+                      <span id="date" class="text-end">16/09/2020</span>
+                    </div>
+                    
+                    <div class="invoice-details">
+                      <table class="invoice-table">
+                        <thead>
+                          <tr>
+                            <td>PRODUCT</td>
+                            <td class="text-center">UNIT</td>
+                            <td>PRICE</td>
+                          </tr>
+                        </thead>
+                        
+                        <tbody>
+                          <tr class="row-data">
+                            <td>Inner Weaer <span>(large)</span></td>
+                            <td id="unit">2</td>
+                            <td>90.00</td>
+                          </tr>
+                          
+                          <tr class="row-data">
+                            <td>Shirt<span>(medium)</span></td>
+                            <td id="unit">1</td>
+                            <td>450.00</td>
+                          </tr>
+                          
+                          <tr class="calc-row">
+                            <td colspan="2">Total</td>
+                            <td>540.00</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                    <div class="invoice-footer">
+                        <span class="thanks-span">Thanks, Come again</span>
+                    </div>
+                  </div>
+                  
+   
+            </div>
+            <div class="modal-footer app-modal-footer text-right">
+                <button mat-raised-button class="button-class"><mat-icon class="mr-2">print</mat-icon>Print</button>
+            </div>
+        </div>
+    </div>
+
+</div>
